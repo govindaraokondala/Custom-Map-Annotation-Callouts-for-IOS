@@ -28,7 +28,9 @@ IMPORT STATEMENTS :
 
 How to use this sample
      
-=============================================******START OF USAGE*************================================================ 
+=====================******START OF USAGE*************====================================
+
+
 STEP1:  CREATE ONE OBJECT FOR NSMutableArray
  
     NSMutableArray *placesArray=[[NSMutableArray alloc] init];
