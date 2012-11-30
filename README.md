@@ -116,7 +116,8 @@ STEP6:YOU CAN CUSTOMIZE TITLE LABLE, DESCRIPTION LABLE AND IMAGEVIEW AS PER OUR 
 	EX:mapControlller.titleView.textColor=[UIColor redColor];
 
     
-=============================================******END OF USAGE*************================================================ 
+=============================******END OF USAGE*************============== 
+
 
 											************************************
 											  WHAT IS INSIDE MapViewController								
