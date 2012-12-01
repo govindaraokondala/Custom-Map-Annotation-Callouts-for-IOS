@@ -96,7 +96,7 @@
         self.toolBarTitle.backgroundColor=[UIColor clearColor];
         
         
-        self.mapView=[[MKMapView alloc] initWithFrame:CGRectMake(0, 44, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-44)];
+        self.mapView=[[MKMapView alloc] initWithFrame:CGRectMake(0, 44, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-64)];
         self.mapView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
         
         self.mapToolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 44)];
@@ -184,7 +184,7 @@
     {
         self.toolBarTitle.frame=CGRectMake(0, 0, deviceWidthInPortrate, 44);
     }else{
-        self.toolBarTitle.frame=CGRectMake(0, 0, deviceWidthInLandScape, 44); 
+        self.toolBarTitle.frame=CGRectMake(0, 0, deviceWidthInLandScape, 44);
     }
     if(self.selectedAnnotationView==nil||calloutMapAnnotationView==nil)
         return;
@@ -195,6 +195,8 @@
 #pragma mark - Map view deligate methods
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    
+//    NSLog(@"view: %@",view.description);
     if(calloutMapAnnotationView!=nil)
     {
         [self.mapView removeAnnotation: self.placeMarkAnnotation];
@@ -271,12 +273,21 @@
 		calloutMapAnnotationView.mapView = self.mapView;
         return calloutMapAnnotationView;
 	} else {
+        
 		MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"CustomAnnotation"] ;
         annotationView.animatesDrop=YES;
         annotationView.canShowCallout = NO;
 		annotationView.pinColor = MKPinAnnotationColorRed;
+//        annotationView.image=[UIImage imageNamed:@"pin.png"];
         return annotationView;
-	}
+        
+//        MKAnnotationView *tmpView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+//        tmpView.frame=CGRectMake(-8,-34, 32, 39);
+//        tmpView.tag = [annotation.title intValue];
+//        tmpView.image  = [UIImage imageNamed:@"pin.png"];
+//        NSLog(@"View: %@",tmpView.description);
+//        return tmpView;
+    }
 	return nil;
 }
 #pragma mark - callback methods

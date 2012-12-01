@@ -65,8 +65,8 @@
     [placesArray addObjectsFromArray:[NSArray arrayWithObjects:p,p1,p2, nil]];
     
     mapControlller=[[MapViewController alloc] initWithPlaces:placesArray AddDeligate:self];
-    mapControlller.titleView.textColor=[UIColor redColor];
-    //[mapControlller hideMapTopbar];
+//    mapControlller.titleView.textColor=[UIColor redColor];
+//    [mapControlller hideMapTopbar];
     [self presentModalViewController:mapControlller animated:YES];
 //    [self.navigationController pushViewController:mapControlller animated:YES];
     

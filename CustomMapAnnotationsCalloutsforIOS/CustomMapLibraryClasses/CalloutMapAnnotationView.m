@@ -199,14 +199,14 @@
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGFloat parentX = [self relativeParentXPosition];
-    NSLog(@"1: %f",parentX);
+//    NSLog(@"1: %f",parentX);
     if ([self relativeParentXPosition] < 38) {
 		parentX = 38;
 	} else if ([self relativeParentXPosition] > self.mapView.frame.size.width - 38) {
 		parentX = [self relativeParentXPosition]-25;
 	}
     
-     NSLog(@"2: %f",parentX);
+//     NSLog(@"2: %f",parentX);
     // NSLog(@"2: %f",self.offsetFromParent.y);
 	//Determine Size
 	rect = self.bounds;
@@ -224,12 +224,12 @@
         v.frame=CGRectMake(rect.origin.x, v.frame.origin.y, v.frame.size.width, v.frame.size.height);
     }
     
-    NSLog(@"subview: %@",[self.contentView subviews].description);
+    //NSLog(@"subview: %@",[self.contentView subviews].description);
     rect.origin.x += stroke / 2.0 + 7;
 	rect.origin.y += stroke / 2.0;
 	
 	//Create Path For Callout Bubble
-    NSLog(@"=================:%f %f %f %f",rect.origin.x,rect.origin.y,rect.size.width,rect.size.height);
+//    NSLog(@"=================:%f %f %f %f",rect.origin.x,rect.origin.y,rect.size.width,rect.size.height);
 	CGPathMoveToPoint(path, NULL, rect.origin.x, rect.origin.y + radius);
 	CGPathAddLineToPoint(path, NULL, rect.origin.x, rect.origin.y + rect.size.height - radius);
 	CGPathAddArc(path, NULL, rect.origin.x + radius, rect.origin.y + rect.size.height - radius,
@@ -351,6 +351,7 @@
 }
 
 - (CGFloat)relativeParentXPosition {
+    //NSLog(@"Parent :%@",self.parentAnnotationView);
 	CGPoint parentOrigin = [self.mapView convertPoint:self.parentAnnotationView.frame.origin
 											 fromView:self.parentAnnotationView.superview];
 	return parentOrigin.x + self.offsetFromParent.x;
